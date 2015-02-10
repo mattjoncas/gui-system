@@ -15,6 +15,7 @@ namespace gui{
 
 		void SetPosition(sf::Vector2f _pos) override;
 		void SetText(std::string _text) override;
+		std::string GetText() override;
 		bool Contains(sf::Vector2i _pos) override;
 
 		bool IsClicked();

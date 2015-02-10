@@ -55,6 +55,9 @@ namespace gui{
 
 		SetPosition(sf::Vector2f(x + old_offset, y));
 	}
+	std::string GUIText::GetText(){
+		return text;
+	}
 	bool GUIText::Contains(sf::Vector2i _pos){
 		return false;
 	}

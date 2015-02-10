@@ -27,6 +27,10 @@ namespace gui{
 	void GUIObject::SetText(std::string _text){
 		//printf("set text\n");
 	}
+	std::string GUIObject::GetText(){
+		//printf("get text\n");
+		return "";
+	}
 	bool GUIObject::Contains(sf::Vector2i _pos){
 		return false;
 	}

@@ -22,7 +22,7 @@ namespace gui{
 		void AddChar(char _new_text);
 		void Unselect();
 
-		std::string GetText();
+		std::string GetText() override;
 	private:
 		int width, height;
 		bool selected;

@@ -82,6 +82,9 @@ namespace gui{
 
 		SetPosition(sf::Vector2f(x + old_offset, y));
 	}
+	std::string GUIButton::GetText(){
+		return text;
+	}
 	bool GUIButton::Contains(sf::Vector2i _pos){
 		if (_pos.x > x && _pos.x < x + shape.getSize().x
 			&& _pos.y > y && _pos.y < y + shape.getSize().y){

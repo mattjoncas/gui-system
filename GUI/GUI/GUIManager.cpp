@@ -161,7 +161,7 @@ namespace gui{
 	std::string GUIManager::GetText(std::string _name){
 		std::map<std::string, GUIObject*>::iterator b = menus[current].find(_name);
 		if (b != menus[current].end()){
-			return dynamic_cast<GUITextBox*>(b->second)->GetText();
+			return b->second->GetText();
 		}
 		else{
 			return false;
