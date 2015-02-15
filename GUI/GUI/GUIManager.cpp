@@ -39,30 +39,33 @@ namespace gui{
 		}
 		//objects.insert(std::pair<std::string, GUIObject*>("object", new GUIObject()));
 	}
-	void GUIManager::AddButton(int menu_index, std::string _name, int _width, int _height, int _x, int _y, std::string _text, sf::Color _color, sf::Color _hColor, sf::Color _cColor, std::string _font_name){
+	void GUIManager::AddButton(int menu_index, std::string _name, int _width, int _height, int _x, int _y, bool _isCentred, std::string _text, sf::Color _color, sf::Color _hColor, sf::Color _cColor, std::string _font_name){
 		LoadFont(_font_name);
 		if (menu_index < menus.size()){
 			menus[menu_index].insert(std::pair<std::string, GUIObject*>(_name, new GUIButton(_width, _height, _x, _y, _text, _color, _hColor, _cColor, &fonts.find(_font_name)->second)));
+			menus[menu_index].find(_name)->second->SetCentred(_isCentred);
 		}
 		else{
 			printf("menu index out of range.\n");
 		}
 		//objects.insert(std::pair<std::string, GUIObject*>(_name, new GUIButton(_width, _height, _x, _y, _text, _color, _hColor, _cColor, &fonts.find(_font_name)->second)));
 	}
-	void GUIManager::AddText(int menu_index, std::string _name, int _x, int _y, std::string _text, sf::Color _color, std::string _font_name, int _font_size){
+	void GUIManager::AddText(int menu_index, std::string _name, int _x, int _y, bool _isCentred, std::string _text, sf::Color _color, std::string _font_name, int _font_size){
 		LoadFont(_font_name);
 		if (menu_index < menus.size()){
 			menus[menu_index].insert(std::pair<std::string, GUIObject*>(_name, new GUIText(_x, _y, _text, _color, &fonts.find(_font_name)->second, _font_size)));
+			menus[menu_index].find(_name)->second->SetCentred(_isCentred);
 		}
 		else{
 			printf("menu index out of range.\n");
 		}
 		//objects.insert(std::pair<std::string, GUIObject*>(_name, new GUIText(_x, _y, _text, _color, &fonts.find(_font_name)->second, _font_size)));
 	}
-	void GUIManager::AddTextBox(int menu_index, std::string _name, int _width, int _height, int _x, int _y, std::string _text, sf::Color _color, std::string _font_name){
+	void GUIManager::AddTextBox(int menu_index, std::string _name, int _width, int _height, int _x, int _y, bool _isCentred, std::string _text, sf::Color _color, std::string _font_name){
 		LoadFont(_font_name);
 		if (menu_index < menus.size()){
 			menus[menu_index].insert(std::pair<std::string, GUIObject*>(_name, new GUITextBox(_width, _height, _x, _y, _text, _color, &fonts.find(_font_name)->second)));
+			menus[menu_index].find(_name)->second->SetCentred(_isCentred);
 		}
 		else{
 			printf("menu index out of range.\n");
