@@ -9,6 +9,8 @@
 #include "GUIText.h"
 #include "GUITextBox.h"
 
+#include "Event.h"
+
 namespace gui{
 
 	class GUIManager{
@@ -52,6 +54,9 @@ namespace gui{
 
 		//is mouse cursor over an gui objects
 		bool CursorOverGUI();
+
+		//events
+		bool PollEvent(Event &g_event);
 	private:
 		int current;
 
@@ -61,6 +66,9 @@ namespace gui{
 		std::map<std::string, sf::Font> fonts;
 
 		bool cursor_over_gui;
+
+		//events
+		std::vector<Event*> events;
 	};
 
 }

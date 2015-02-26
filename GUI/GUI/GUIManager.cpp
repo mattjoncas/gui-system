@@ -14,6 +14,10 @@ namespace gui{
 			}
 		}
 		menus.clear();
+
+		for (std::vector<Event*>::iterator iter = events.begin(); iter != events.end(); ++iter){
+			delete((*iter));
+		}
 	}
 
 	int GUIManager::AddMenu(){
@@ -97,6 +101,12 @@ namespace gui{
 				if (!cursor_over_gui){
 					sf::Vector2i _pos = sf::Mouse::getPosition(*_window);
 					cursor_over_gui = it->second->Contains(_pos);
+				}
+				GUIButton *b = dynamic_cast<GUIButton*>(it->second);
+				if (b){
+					if (b->IsClicked()){
+						events.push_back(new Event(b, it->first));
+					}
 				}
 			}
 		}
@@ -186,4 +196,16 @@ namespace gui{
 		return cursor_over_gui;
 	}
 
+	bool GUIManager::PollEvent(Event &g_event){
+		if (events.size() > 0){
+			g_event = *events[0];
+
+			for (std::vector<Event*>::iterator iter = events.begin(); iter != events.begin() + 1; ++iter){
+				delete((*iter));
+			}
+			events.erase(events.begin());
+			return true;
+		}
+		return false;
+	}
 }

@@ -28,7 +28,7 @@ namespace gui{
 		sf::Text button_text;
 		std::string text;
 
-		bool isClicked;
+		bool clicked, c_state, p_state;
 	};
 
 }

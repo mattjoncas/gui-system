@@ -25,7 +25,7 @@ namespace gui{
 
 		button_text.setPosition(x - button_text.getLocalBounds().width / 2 + _width / 2, y);
 
-		isClicked = false;
+		c_state = false; p_state = false; clicked = false;
 		active = true;
 		centred = false;
 	}
@@ -45,17 +45,21 @@ namespace gui{
 			&& _pos.y > y && _pos.y < y + shape.getSize().y){
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)){
 				shape.setFillColor(c_color);
-				isClicked = true;
+				c_state = true;
 			}
 			else{
+				c_state = false;
 				shape.setFillColor(h_color);
-				//isClicked = false;
+				if (!c_state && p_state){
+					clicked = true;
+				}
 			}
 		}
 		else{
 			shape.setFillColor(color);
-			isClicked = false;
+			c_state = false;
 		}
+		p_state = c_state;
 	}
 
 	void GUIButton::SetPosition(sf::Vector2f _pos){
@@ -94,7 +98,11 @@ namespace gui{
 	}
 
 	bool GUIButton::IsClicked(){
-		return isClicked;
+		if (clicked){
+			clicked = false;
+			return true;
+		}
+		return false;
 	}
 
 }
