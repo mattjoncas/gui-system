@@ -24,11 +24,17 @@ namespace gui{
 		virtual std::string GetText();
 		//returns true if gui objects bounds contain the given screen position
 		virtual bool Contains(sf::Vector2i _pos);
+		//lerp
+		void Lerp(sf::Vector2f _target, float _lerp_time);
 
 		bool Active();
 		void SetActive(bool _isActive);
 	protected:
 		bool active, centred;
+
+		bool lerping = false;
+		sf::Vector2f lerp_start, lerp_end;
+		float lerp_time, lerp_end_time;
 	};
 
 }

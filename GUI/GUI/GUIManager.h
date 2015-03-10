@@ -41,6 +41,8 @@ namespace gui{
 		void SetCentred(std::string _name, bool _centred);
 		//set a gui objects position
 		void SetPosition(std::string _name, sf::Vector2f new_pos);
+		//get on screen position of gui object
+		sf::Vector2f GetPosition(std::string _name);
 		//set the text of a gui object
 		void SetText(std::string _name, std::string _text);
 		//get the string within a gui object
@@ -49,8 +51,16 @@ namespace gui{
 		void SetActive(std::string _name, bool _isActive);
 		//character input for currently selected gui text box
 		void TextBoxInput(char _c);
+		//returns true if gui object is selected
+		bool IsSelected(std::string _name);
+		//select a gui object [example: select a text box for typing]
+		void Select(std::string _name);
 		//unselect all gui objects
 		void Unselect();
+		//hide text inside a textbox [replaces display text with '****']
+		void SetTextBoxHidden(std::string _name, bool _isHidden);
+		//lerp a gui object
+		void Lerp(std::string _name, sf::Vector2f _target, float lerp_time);
 
 		//is mouse cursor over an gui objects
 		bool CursorOverGUI();

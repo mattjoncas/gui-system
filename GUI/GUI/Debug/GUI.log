@@ -1,4 +1,4 @@
-﻿Build started 25/02/2015 5:36:32 PM.
+﻿Build started 10/03/2015 2:21:21 PM.
      1>Project "C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\GUI\GUI.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GUIManager.cpp
@@ -9,6 +9,7 @@
      1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(48): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(59): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(70): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(141): warning C4715: 'gui::GUIManager::GetPosition' : not all control paths return a value
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\Debug\GUI.lib" /NOLOGO Debug\Event.obj
          Debug\GUIButton.obj
@@ -21,4 +22,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.44
+Time Elapsed 00:00:01.41

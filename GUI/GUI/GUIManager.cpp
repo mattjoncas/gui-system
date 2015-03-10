@@ -133,6 +133,12 @@ namespace gui{
 			t->second->SetPosition(new_pos);
 		}
 	}
+	sf::Vector2f GUIManager::GetPosition(std::string _name){
+		std::map<std::string, GUIObject*>::iterator t = menus[current].find(_name);
+		if (t != menus[current].end()){
+			return sf::Vector2f(t->second->x, t->second->y);
+		}
+	}
 	void GUIManager::SetText(std::string _name, std::string _text){
 		std::map<std::string, GUIObject*>::iterator t = menus[current].find(_name);
 		if (t != menus[current].end()){
@@ -159,6 +165,31 @@ namespace gui{
 			}
 		}
 	}
+	
+	bool GUIManager::IsSelected(std::string _name){
+		std::map<std::string, GUIObject*>::iterator it;
+		for (it = menus[current].begin(); it != menus[current].end(); it++){
+			if (it->second->Active() && it->first == _name){
+				GUITextBox *b = dynamic_cast<GUITextBox*>(it->second);
+				if (b){
+					return b->Selected();
+				}
+			}
+		}
+		return false;
+	}
+	void GUIManager::Select(std::string _name){
+		std::map<std::string, GUIObject*>::iterator it;
+		for (it = menus[current].begin(); it != menus[current].end(); it++){
+			if (it->second->Active() && it->first == _name){
+				GUITextBox *b = dynamic_cast<GUITextBox*>(it->second);
+				if (b){
+					b->Select();
+				}
+				break;
+			}
+		}
+	}
 	void GUIManager::Unselect(){
 		std::map<std::string, GUIObject*>::iterator it;
 		for (it = menus[current].begin(); it != menus[current].end(); it++){
@@ -168,6 +199,24 @@ namespace gui{
 					b->Unselect();
 				}
 			}
+		}
+	}
+	void GUIManager::SetTextBoxHidden(std::string _name, bool _isHidden){
+		std::map<std::string, GUIObject*>::iterator it;
+		for (it = menus[current].begin(); it != menus[current].end(); it++){
+			if (it->second->Active() && it->first == _name){
+				GUITextBox *b = dynamic_cast<GUITextBox*>(it->second);
+				if (b){
+					b->SetHidden(_isHidden);
+				}
+				break;
+			}
+		}
+	}
+	void GUIManager::Lerp(std::string _name, sf::Vector2f _target, float lerp_time){
+		std::map<std::string, GUIObject*>::iterator t = menus[current].find(_name);
+		if (t != menus[current].end()){
+			t->second->Lerp(_target, lerp_time);
 		}
 	}
 

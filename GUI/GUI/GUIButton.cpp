@@ -39,6 +39,8 @@ namespace gui{
 		_window->draw(button_text);
 	}
 	void GUIButton::Update(sf::RenderWindow *_window, float _delta){
+		GUIObject::Update(_window, _delta);
+
 		sf::Vector2i _pos = sf::Mouse::getPosition(*_window);
 
 		if (_pos.x > x && _pos.x < x + shape.getSize().x

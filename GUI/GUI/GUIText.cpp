@@ -30,6 +30,7 @@ namespace gui{
 		_window->draw(text_object);
 	}
 	void GUIText::Update(sf::RenderWindow *_window, float _delta){
+		GUIObject::Update(_window, _delta);
 
 	}
 

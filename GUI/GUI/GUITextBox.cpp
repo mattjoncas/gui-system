@@ -31,6 +31,8 @@ namespace gui{
 		selected = false;
 		active = true;
 		centred = false;
+
+		hidden_text = false;
 	}
 
 	GUITextBox::~GUITextBox(){
@@ -43,6 +45,8 @@ namespace gui{
 		_window->draw(selected_text);
 	}
 	void GUITextBox::Update(sf::RenderWindow *_window, float _delta){
+		GUIObject::Update(_window, _delta);
+
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)){
 			sf::Vector2i _pos = sf::Mouse::getPosition(*_window);
 			if (_pos.x > x && _pos.x < x + shape.getSize().x
@@ -95,7 +99,12 @@ namespace gui{
 		}
 		text = _text;
 
-		box_text.setString(text);
+		if (hidden_text){
+			box_text.setString(HideText(text));
+		}
+		else{
+			box_text.setString(text);
+		}
 
 		SetPosition(sf::Vector2f(x + old_offset, y));
 	}
@@ -113,18 +122,43 @@ namespace gui{
 	void GUITextBox::AddChar(char _new_text){
 		if (_new_text != NULL){
 			text += _new_text;
-			box_text.setString(text);
 		}
 		else{
 			if (text.size() > 0){
 				text.pop_back();
-				box_text.setString(text);
 			}
+		}
+		if (hidden_text){
+			box_text.setString(HideText(text));
+		}
+		else{
+			box_text.setString(text);
 		}
 		selected_text.setPosition(x + box_text.getLocalBounds().width + box_text.getCharacterSize() / 10, y);
 	}
+	void GUITextBox::Select(){
+		selected = true;
+	}
 	void GUITextBox::Unselect(){
 		selected = false;
+	}
+
+	void GUITextBox::SetHidden(bool _isHidden){
+		hidden_text = _isHidden;
+
+		if (hidden_text){
+			box_text.setString(HideText(text));
+		}
+		else{
+			box_text.setString(text);
+		}
+	}
+	std::string GUITextBox::HideText(std::string _string){
+		std::string hidden_text;
+		for (int i = 0; i < text.size(); i++){
+			hidden_text += "*";
+		}
+		return hidden_text;
 	}
 
 	std::string GUITextBox::GetText(){
