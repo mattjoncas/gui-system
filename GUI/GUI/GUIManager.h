@@ -17,6 +17,7 @@ namespace gui{
 
 	public:
 		GUIManager();
+		GUIManager(bool gui_cursor);
 		~GUIManager();
 
 		//creates and binds new menu
@@ -69,6 +70,7 @@ namespace gui{
 		bool PollEvent(Event &g_event);
 	private:
 		int current;
+		bool cursor;
 
 		std::vector<std::map<std::string, GUIObject*>> menus;
 		//loads a font from the 'fonts' folder
@@ -79,6 +81,10 @@ namespace gui{
 
 		//events
 		std::vector<Event*> events;
+
+		void AddCursor();
+		sf::Texture cursor_texture;
+		sf::RectangleShape cursor_rec;
 	};
 
 }

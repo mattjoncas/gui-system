@@ -3,7 +3,14 @@
 namespace gui{
 
 	GUIManager::GUIManager(){
-		current = 0;
+		current = -1;
+		cursor = false;
+	}
+	GUIManager::GUIManager(bool gui_cursor){
+		current = -1;
+		if (gui_cursor){
+			AddCursor();
+		}
 	}
 
 	GUIManager::~GUIManager(){
@@ -41,7 +48,6 @@ namespace gui{
 		else{
 			printf("menu index out of range.\n");
 		}
-		//objects.insert(std::pair<std::string, GUIObject*>("object", new GUIObject()));
 	}
 	void GUIManager::AddButton(int menu_index, std::string _name, int _width, int _height, int _x, int _y, bool _isCentred, std::string _text, sf::Color _color, sf::Color _hColor, sf::Color _cColor, std::string _font_name){
 		LoadFont(_font_name);
@@ -78,36 +84,46 @@ namespace gui{
 	}
 
 	void GUIManager::Render(sf::RenderWindow *_window){
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
-		glUseProgram(0);
-		glBindVertexArray(0);
-		_window->pushGLStates();
+		if (current >= 0){
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
+			glUseProgram(0);
+			glBindVertexArray(0);
+			_window->pushGLStates();
 
-		std::map<std::string, GUIObject*>::iterator it;
-		for (it = menus[current].begin(); it != menus[current].end(); it++){
-			if (it->second->Active()){
-				it->second->Render(_window);
+			std::map<std::string, GUIObject*>::iterator it;
+			for (it = menus[current].begin(); it != menus[current].end(); it++){
+				if (it->second->Active()){
+					it->second->Render(_window);
+				}
 			}
+			if (cursor){
+				_window->draw(cursor_rec);
+			}
+			_window->popGLStates();
 		}
-
-		_window->popGLStates();
 	}
 	void GUIManager::Update(sf::RenderWindow *_window, float _delta){
-		cursor_over_gui = false;
-		std::map<std::string, GUIObject*>::iterator it;
-		for (it = menus[current].begin(); it != menus[current].end(); it++){
-			if (it->second->Active()){
-				it->second->Update(_window, _delta);
-				if (!cursor_over_gui){
-					sf::Vector2i _pos = sf::Mouse::getPosition(*_window);
-					cursor_over_gui = it->second->Contains(_pos);
-				}
-				GUIButton *b = dynamic_cast<GUIButton*>(it->second);
-				if (b){
-					if (b->IsClicked()){
-						events.push_back(new Event(b, it->first));
+		if (current >= 0){
+			cursor_over_gui = false;
+			std::map<std::string, GUIObject*>::iterator it;
+			for (it = menus[current].begin(); it != menus[current].end(); it++){
+				if (it->second->Active()){
+					it->second->Update(_window, _delta);
+					if (!cursor_over_gui){
+						sf::Vector2i _pos = sf::Mouse::getPosition(*_window);
+						cursor_over_gui = it->second->Contains(_pos);
+					}
+					GUIButton *b = dynamic_cast<GUIButton*>(it->second);
+					if (b){
+						if (b->IsClicked()){
+							events.push_back(new Event(b, it->first));
+						}
 					}
 				}
+			}
+			if (cursor){
+				_window->setMouseCursorVisible(false);
+				cursor_rec.setPosition(sf::Vector2f(sf::Mouse::getPosition(*_window).x - cursor_rec.getSize().x / 2.0f, sf::Mouse::getPosition(*_window).y - 1));
 			}
 		}
 	}
@@ -256,5 +272,17 @@ namespace gui{
 			return true;
 		}
 		return false;
+	}
+
+	void GUIManager::AddCursor(){
+		if (!cursor){
+			cursor_texture.loadFromFile("textures/cursor_centered.png", sf::IntRect());
+			cursor_texture.setSmooth(false);
+
+			cursor_rec.setSize(sf::Vector2f(cursor_texture.getSize().x * 0.5, cursor_texture.getSize().y * 0.5));
+			cursor_rec.setTexture(&cursor_texture);
+			
+			cursor = true;
+		}
 	}
 }
