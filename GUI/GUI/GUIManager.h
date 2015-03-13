@@ -4,6 +4,7 @@
 #include <SFML/OpenGL.hpp>
 #include <SFML/Graphics.hpp>
 
+#include "Menu.h"
 #include "GUIObject.h"
 #include "GUIButton.h"
 #include "GUIText.h"
@@ -72,7 +73,8 @@ namespace gui{
 		int current;
 		bool cursor;
 
-		std::vector<std::map<std::string, GUIObject*>> menus;
+		//std::vector<std::map<std::string, GUIObject*>> menus;
+		std::vector<Menu*> menu;
 		//loads a font from the 'fonts' folder
 		void LoadFont(std::string _font_name);
 		std::map<std::string, sf::Font> fonts;

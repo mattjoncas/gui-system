@@ -83,6 +83,7 @@
     <ClCompile Include="GUIObject.cpp" />
     <ClCompile Include="GUIText.cpp" />
     <ClCompile Include="GUITextBox.cpp" />
+    <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Event.h" />
@@ -91,6 +92,7 @@
     <ClInclude Include="GUIObject.h" />
     <ClInclude Include="GUIText.h" />
     <ClInclude Include="GUITextBox.h" />
+    <ClInclude Include="Menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

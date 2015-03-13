@@ -23,7 +23,7 @@ namespace gui{
 		button_text.setFont(*_font);
 		button_text.setCharacterSize(_height / 1.3);
 
-		button_text.setPosition(x - button_text.getLocalBounds().width / 2 + _width / 2, y);
+		button_text.setPosition(int(x - button_text.getLocalBounds().width / 2 + _width / 2), int(y));
 
 		c_state = false; p_state = false; clicked = false;
 		active = true;
@@ -75,7 +75,7 @@ namespace gui{
 			x = _pos.x;
 			y = _pos.y;
 		}
-		button_text.setPosition(x - button_text.getLocalBounds().width / 2 + shape.getLocalBounds().width / 2, y);
+		button_text.setPosition(int(x - button_text.getLocalBounds().width / 2 + shape.getLocalBounds().width / 2), int(y));
 	}
 	void GUIButton::SetText(std::string _text){
 		float old_offset = 0.0f;

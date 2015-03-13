@@ -16,7 +16,7 @@ namespace gui{
 		text_object.setFont(*_font);
 		text_object.setCharacterSize(_font_size);
 
-		text_object.setPosition(x, y);
+		text_object.setPosition(int(x), int(y));
 
 		active = true;
 		centred = false;
@@ -43,7 +43,7 @@ namespace gui{
 			x = _pos.x;
 			y = _pos.y;
 		}
-		text_object.setPosition(x, y);
+		text_object.setPosition(int(x), int(y));
 	}
 	void GUIText::SetText(std::string _text){
 		float old_offset = 0.0f;

@@ -14,36 +14,32 @@ namespace gui{
 	}
 
 	GUIManager::~GUIManager(){
-		//delete all collections of gui objects
-		for (int i = 0; i < menus.size(); i++){
-			for (auto it = menus[i].begin(); it != menus[i].end(); ++it){
-				delete it->second;
-			}
+		for (std::vector<Menu*>::iterator iter = menu.begin(); iter != menu.end(); ++iter){
+			delete((*iter));
 		}
-		menus.clear();
-
 		for (std::vector<Event*>::iterator iter = events.begin(); iter != events.end(); ++iter){
 			delete((*iter));
 		}
 	}
 
 	int GUIManager::AddMenu(){
-		menus.push_back(std::map<std::string, GUIObject*>());
-		current = menus.size() - 1;
+		menu.push_back(new Menu());
+		current = menu.size() - 1;
 		return current;
 	}
 	void GUIManager::BindMenu(int menu_index){
-		if (menu_index < menus.size()){
+		if (menu_index < int(menu.size())){
 			current = menu_index;
+			printf(std::to_string(current).c_str());
 		}
 		else{
-			printf("menu index out of range.\n");
+			printf("menu index out of range [bind menu]. \n");
 		}
 	}
 
 	void GUIManager::AddObject(int menu_index){
-		if (menu_index < menus.size()){
-			menus[menu_index].insert(std::pair<std::string, GUIObject*>("object", new GUIObject()));
+		if (menu_index < menu.size()){
+			menu[menu_index]->AddItem("object", new GUIObject());
 		}
 		else{
 			printf("menu index out of range.\n");
@@ -51,36 +47,36 @@ namespace gui{
 	}
 	void GUIManager::AddButton(int menu_index, std::string _name, int _width, int _height, int _x, int _y, bool _isCentred, std::string _text, sf::Color _color, sf::Color _hColor, sf::Color _cColor, std::string _font_name){
 		LoadFont(_font_name);
-		if (menu_index < menus.size()){
-			menus[menu_index].insert(std::pair<std::string, GUIObject*>(_name, new GUIButton(_width, _height, _x, _y, _text, _color, _hColor, _cColor, &fonts.find(_font_name)->second)));
-			menus[menu_index].find(_name)->second->SetCentred(_isCentred);
+		if (menu_index < menu.size()){
+			GUIButton* b = new GUIButton(_width, _height, _x, _y, _text, _color, _hColor, _cColor, &fonts.find(_font_name)->second);
+			b->SetCentred(_isCentred);
+			menu[menu_index]->AddItem(_name, b);
 		}
 		else{
 			printf("menu index out of range.\n");
 		}
-		//objects.insert(std::pair<std::string, GUIObject*>(_name, new GUIButton(_width, _height, _x, _y, _text, _color, _hColor, _cColor, &fonts.find(_font_name)->second)));
 	}
 	void GUIManager::AddText(int menu_index, std::string _name, int _x, int _y, bool _isCentred, std::string _text, sf::Color _color, std::string _font_name, int _font_size){
 		LoadFont(_font_name);
-		if (menu_index < menus.size()){
-			menus[menu_index].insert(std::pair<std::string, GUIObject*>(_name, new GUIText(_x, _y, _text, _color, &fonts.find(_font_name)->second, _font_size)));
-			menus[menu_index].find(_name)->second->SetCentred(_isCentred);
+		if (menu_index < menu.size()){
+			GUIText* t = new GUIText(_x, _y, _text, _color, &fonts.find(_font_name)->second, _font_size);
+			t->SetCentred(_isCentred);
+			menu[menu_index]->AddItem(_name, t);
 		}
 		else{
 			printf("menu index out of range.\n");
 		}
-		//objects.insert(std::pair<std::string, GUIObject*>(_name, new GUIText(_x, _y, _text, _color, &fonts.find(_font_name)->second, _font_size)));
 	}
 	void GUIManager::AddTextBox(int menu_index, std::string _name, int _width, int _height, int _x, int _y, bool _isCentred, std::string _text, sf::Color _color, std::string _font_name){
 		LoadFont(_font_name);
-		if (menu_index < menus.size()){
-			menus[menu_index].insert(std::pair<std::string, GUIObject*>(_name, new GUITextBox(_width, _height, _x, _y, _text, _color, &fonts.find(_font_name)->second)));
-			menus[menu_index].find(_name)->second->SetCentred(_isCentred);
+		if (menu_index < menu.size()){
+			GUITextBox* t = new GUITextBox(_width, _height, _x, _y, _text, _color, &fonts.find(_font_name)->second);
+			t->SetCentred(_isCentred);
+			menu[menu_index]->AddItem(_name, t);
 		}
 		else{
 			printf("menu index out of range.\n");
 		}
-		//objects.insert(std::pair<std::string, GUIObject*>("text_box", new GUITextBox(280, 40, 50, 50, "type here.", sf::Color(9, 43, 106, 255), &fonts.find("fonts/TF2.ttf")->second)));
 	}
 
 	void GUIManager::Render(sf::RenderWindow *_window){
@@ -90,12 +86,7 @@ namespace gui{
 			glBindVertexArray(0);
 			_window->pushGLStates();
 
-			std::map<std::string, GUIObject*>::iterator it;
-			for (it = menus[current].begin(); it != menus[current].end(); it++){
-				if (it->second->Active()){
-					it->second->Render(_window);
-				}
-			}
+			menu[current]->Render(_window);
 			if (cursor){
 				_window->draw(cursor_rec);
 			}
@@ -103,10 +94,10 @@ namespace gui{
 		}
 	}
 	void GUIManager::Update(sf::RenderWindow *_window, float _delta){
+		cursor_over_gui = false;
 		if (current >= 0){
-			cursor_over_gui = false;
 			std::map<std::string, GUIObject*>::iterator it;
-			for (it = menus[current].begin(); it != menus[current].end(); it++){
+			for (it = menu[current]->items.begin(); it != menu[current]->items.end(); it++){
 				if (it->second->Active()){
 					it->second->Update(_window, _delta);
 					if (!cursor_over_gui){
@@ -129,8 +120,8 @@ namespace gui{
 	}
 
 	bool GUIManager::ButtonClicked(std::string _name){
-		std::map<std::string, GUIObject*>::iterator b = menus[current].find(_name);
-		if (b != menus[current].end()){
+		std::map<std::string, GUIObject*>::iterator b = menu[current]->items.find(_name);
+		if (b != menu[current]->items.end()){
 			return dynamic_cast<GUIButton*>(b->second)->IsClicked();
 		}
 		else{
@@ -138,39 +129,39 @@ namespace gui{
 		}
 	}
 	void GUIManager::SetCentred(std::string _name, bool _centred){
-		std::map<std::string, GUIObject*>::iterator t = menus[current].find(_name);
-		if (t != menus[current].end()){
+		std::map<std::string, GUIObject*>::iterator t = menu[current]->items.find(_name);
+		if (t != menu[current]->items.end()){
 			t->second->SetCentred(_centred);
 		}
 	}
 	void GUIManager::SetPosition(std::string _name, sf::Vector2f new_pos){
-		std::map<std::string, GUIObject*>::iterator t = menus[current].find(_name);
-		if (t != menus[current].end()){
+		std::map<std::string, GUIObject*>::iterator t = menu[current]->items.find(_name);
+		if (t != menu[current]->items.end()){
 			t->second->SetPosition(new_pos);
 		}
 	}
 	sf::Vector2f GUIManager::GetPosition(std::string _name){
-		std::map<std::string, GUIObject*>::iterator t = menus[current].find(_name);
-		if (t != menus[current].end()){
+		std::map<std::string, GUIObject*>::iterator t = menu[current]->items.find(_name);
+		if (t != menu[current]->items.end()){
 			return sf::Vector2f(t->second->x, t->second->y);
 		}
 	}
 	void GUIManager::SetText(std::string _name, std::string _text){
-		std::map<std::string, GUIObject*>::iterator t = menus[current].find(_name);
-		if (t != menus[current].end()){
+		std::map<std::string, GUIObject*>::iterator t = menu[current]->items.find(_name);
+		if (t != menu[current]->items.end()){
 			t->second->SetText(_text);
 		}
 	}
 	void GUIManager::SetActive(std::string _name, bool _isActive){
-		std::map<std::string, GUIObject*>::iterator t = menus[current].find(_name);
-		if (t != menus[current].end()){
+		std::map<std::string, GUIObject*>::iterator t = menu[current]->items.find(_name);
+		if (t != menu[current]->items.end()){
 			t->second->SetActive(_isActive);
 		}
 	}
 
 	void GUIManager::TextBoxInput(char _c){
 		std::map<std::string, GUIObject*>::iterator it;
-		for (it = menus[current].begin(); it != menus[current].end(); it++){
+		for (it = menu[current]->items.begin(); it != menu[current]->items.end(); it++){
 			if (it->second->Active()){
 				GUITextBox *b = dynamic_cast<GUITextBox*>(it->second);
 				if (b){
@@ -184,7 +175,7 @@ namespace gui{
 	
 	bool GUIManager::IsSelected(std::string _name){
 		std::map<std::string, GUIObject*>::iterator it;
-		for (it = menus[current].begin(); it != menus[current].end(); it++){
+		for (it = menu[current]->items.begin(); it != menu[current]->items.end(); it++){
 			if (it->second->Active() && it->first == _name){
 				GUITextBox *b = dynamic_cast<GUITextBox*>(it->second);
 				if (b){
@@ -196,7 +187,7 @@ namespace gui{
 	}
 	void GUIManager::Select(std::string _name){
 		std::map<std::string, GUIObject*>::iterator it;
-		for (it = menus[current].begin(); it != menus[current].end(); it++){
+		for (it = menu[current]->items.begin(); it != menu[current]->items.end(); it++){
 			if (it->second->Active() && it->first == _name){
 				GUITextBox *b = dynamic_cast<GUITextBox*>(it->second);
 				if (b){
@@ -208,7 +199,7 @@ namespace gui{
 	}
 	void GUIManager::Unselect(){
 		std::map<std::string, GUIObject*>::iterator it;
-		for (it = menus[current].begin(); it != menus[current].end(); it++){
+		for (it = menu[current]->items.begin(); it != menu[current]->items.end(); it++){
 			if (it->second->Active()){
 				GUITextBox *b = dynamic_cast<GUITextBox*>(it->second);
 				if (b){
@@ -219,7 +210,7 @@ namespace gui{
 	}
 	void GUIManager::SetTextBoxHidden(std::string _name, bool _isHidden){
 		std::map<std::string, GUIObject*>::iterator it;
-		for (it = menus[current].begin(); it != menus[current].end(); it++){
+		for (it = menu[current]->items.begin(); it != menu[current]->items.end(); it++){
 			if (it->second->Active() && it->first == _name){
 				GUITextBox *b = dynamic_cast<GUITextBox*>(it->second);
 				if (b){
@@ -230,15 +221,15 @@ namespace gui{
 		}
 	}
 	void GUIManager::Lerp(std::string _name, sf::Vector2f _target, float lerp_time){
-		std::map<std::string, GUIObject*>::iterator t = menus[current].find(_name);
-		if (t != menus[current].end()){
+		std::map<std::string, GUIObject*>::iterator t = menu[current]->items.find(_name);
+		if (t != menu[current]->items.end()){
 			t->second->Lerp(_target, lerp_time);
 		}
 	}
 
 	std::string GUIManager::GetText(std::string _name){
-		std::map<std::string, GUIObject*>::iterator b = menus[current].find(_name);
-		if (b != menus[current].end()){
+		std::map<std::string, GUIObject*>::iterator b = menu[current]->items.find(_name);
+		if (b != menu[current]->items.end()){
 			return b->second->GetText();
 		}
 		else{

@@ -20,13 +20,13 @@ namespace gui{
 		box_text.setColor(sf::Color(0, 0, 0, 255));
 		box_text.setFont(*_font);
 		box_text.setCharacterSize(_height / 1.3);
-		box_text.setPosition(x + box_text.getCharacterSize() / 10, y);
+		box_text.setPosition(int(x + box_text.getCharacterSize() / 10), int(y));
 
 		selected_text.setString("");
 		selected_text.setColor(sf::Color(0, 0, 0, 255));
 		selected_text.setFont(*_font);
 		selected_text.setCharacterSize(_height / 1.3);
-		selected_text.setPosition(x + box_text.getLocalBounds().width + box_text.getCharacterSize() / 10, y);
+		selected_text.setPosition(int(x + box_text.getLocalBounds().width + box_text.getCharacterSize() / 10), int(y));
 
 		selected = false;
 		active = true;
@@ -89,8 +89,8 @@ namespace gui{
 			x = _pos.x;
 			y = _pos.y;
 		}
-		box_text.setPosition(x + box_text.getCharacterSize() / 10, y);
-		selected_text.setPosition(x + box_text.getLocalBounds().width + box_text.getCharacterSize() / 10, y);
+		box_text.setPosition(int(x + box_text.getCharacterSize() / 10), int(y));
+		selected_text.setPosition(int(x + box_text.getLocalBounds().width + box_text.getCharacterSize() / 10), int(y));
 	}
 	void GUITextBox::SetText(std::string _text){
 		float old_offset = 0.0f;
