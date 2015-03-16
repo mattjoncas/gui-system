@@ -23,10 +23,12 @@ namespace gui{
 
 		//creates and binds new menu
 		int AddMenu();
-		//binds menu
+		//bind a menu by index [binding -1 will unbind all menus]
 		void BindMenu(int menu_index);
 		//add a basic gui object to a menu
 		void AddObject(int menu_index);
+		//remove a gui object from a menu
+		void RemoveObject(int menu_index, std::string _name);
 		//add a gui button to a menu
 		void AddButton(int menu_index, std::string _name, int _width, int _height, int _x, int _y, bool _isCentred, std::string _text, sf::Color _color, sf::Color _hColor, sf::Color _cColor, std::string _font_name);
 		//add a gui text field to a menu

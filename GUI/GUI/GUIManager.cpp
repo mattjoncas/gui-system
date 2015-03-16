@@ -30,7 +30,6 @@ namespace gui{
 	void GUIManager::BindMenu(int menu_index){
 		if (menu_index < int(menu.size())){
 			current = menu_index;
-			printf(std::to_string(current).c_str());
 		}
 		else{
 			printf("menu index out of range [bind menu]. \n");
@@ -43,6 +42,13 @@ namespace gui{
 		}
 		else{
 			printf("menu index out of range.\n");
+		}
+	}
+	void GUIManager::RemoveObject(int menu_index, std::string _name){
+		std::map<std::string, GUIObject*>::iterator t = menu[menu_index]->items.find(_name);
+		if (t != menu[menu_index]->items.end()){
+			delete t->second;
+			menu[menu_index]->items.erase(t);
 		}
 	}
 	void GUIManager::AddButton(int menu_index, std::string _name, int _width, int _height, int _x, int _y, bool _isCentred, std::string _text, sf::Color _color, sf::Color _hColor, sf::Color _cColor, std::string _font_name){
