@@ -22,6 +22,8 @@ namespace gui{
 		box_text.setCharacterSize(_height / 1.3);
 		box_text.setPosition(int(x + box_text.getCharacterSize() / 10), int(y));
 
+		TextOverflow();
+
 		selected_text.setString("");
 		selected_text.setColor(sf::Color(0, 0, 0, 255));
 		selected_text.setFont(*_font);
@@ -105,7 +107,7 @@ namespace gui{
 		else{
 			box_text.setString(text);
 		}
-
+		TextOverflow();
 		SetPosition(sf::Vector2f(x + old_offset, y));
 	}
 	bool GUITextBox::Contains(sf::Vector2i _pos){
@@ -134,6 +136,7 @@ namespace gui{
 		else{
 			box_text.setString(text);
 		}
+		TextOverflow();
 		selected_text.setPosition(x + box_text.getLocalBounds().width + box_text.getCharacterSize() / 10, y);
 	}
 	void GUITextBox::Select(){
@@ -159,6 +162,13 @@ namespace gui{
 			hidden_text += "*";
 		}
 		return hidden_text;
+	}
+	void GUITextBox::TextOverflow(){
+		while (box_text.getLocalBounds().width + box_text.getCharacterSize() / 10 > shape.getLocalBounds().width){
+			std::string n_string = box_text.getString();
+			n_string.pop_back();
+			box_text.setString(n_string);
+		}
 	}
 
 	std::string GUITextBox::GetText(){

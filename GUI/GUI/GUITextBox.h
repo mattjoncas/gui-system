@@ -30,6 +30,8 @@ namespace gui{
 		int width, height;
 		bool selected;
 
+		bool full;
+
 		float current_time;
 
 		sf::RectangleShape shape;
@@ -41,6 +43,7 @@ namespace gui{
 
 		bool hidden_text;
 		std::string HideText(std::string _string);
+		void TextOverflow();
 	};
 
 }
