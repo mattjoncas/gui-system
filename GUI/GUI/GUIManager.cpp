@@ -62,10 +62,10 @@ namespace gui{
 			printf("menu index out of range.\n");
 		}
 	}
-	void GUIManager::AddText(int menu_index, std::string _name, int _x, int _y, bool _isCentred, std::string _text, sf::Color _color, std::string _font_name, int _font_size){
+	void GUIManager::AddText(int menu_index, std::string _name, int _x, int _y, bool _isCentred, std::string _text, sf::Color _color, std::string _font_name, int _font_size, float _fade){
 		LoadFont(_font_name);
 		if (menu_index < menu.size()){
-			GUIText* t = new GUIText(_x, _y, _text, _color, &fonts.find(_font_name)->second, _font_size);
+			GUIText* t = new GUIText(_x, _y, _text, _color, &fonts.find(_font_name)->second, _font_size, _fade);
 			t->SetCentred(_isCentred);
 			menu[menu_index]->AddItem(_name, t);
 		}

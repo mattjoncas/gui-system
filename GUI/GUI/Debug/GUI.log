@@ -1,30 +1,24 @@
-﻿Build started 19/03/2015 4:12:15 PM.
-     1>Project "C:\Users\Matt Joncas\documents\visual studio 2013\Projects\GUI\GUI\GUI.vcxproj" on node 2 (Build target(s)).
+﻿Build started 21/03/2015 8:47:26 PM.
+     1>Project "C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\GUI\GUI.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GUITextBox.cpp
-         GUITextBox.cpp
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(9): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(14): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(15): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(16): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(22): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(23): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(30): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(31): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(94): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(95): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(161): warning C4018: '<' : signed/unsigned mismatch
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GUIText.cpp
+         GUIText.cpp
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitext.cpp(10): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitext.cpp(11): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitext.cpp(19): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitext.cpp(43): warning C4244: '=' : conversion from 'float' to 'sf::Uint8', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitext.cpp(60): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Matt Joncas\documents\visual studio 2013\Projects\GUI\Debug\GUI.lib" /NOLOGO Debug\Event.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\Debug\GUI.lib" /NOLOGO Debug\Event.obj
          Debug\GUIButton.obj
          Debug\GUIManager.obj
          Debug\GUIObject.obj
          Debug\GUIText.obj
          Debug\GUITextBox.obj
          Debug\Menu.obj
-         GUI.vcxproj -> C:\Users\Matt Joncas\documents\visual studio 2013\Projects\GUI\Debug\GUI.lib
-     1>Done Building Project "C:\Users\Matt Joncas\documents\visual studio 2013\Projects\GUI\GUI\GUI.vcxproj" (Build target(s)).
+         GUI.vcxproj -> C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\Debug\GUI.lib
+     1>Done Building Project "C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\GUI\GUI.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.29
+Time Elapsed 00:00:00.98

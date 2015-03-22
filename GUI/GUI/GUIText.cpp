@@ -5,7 +5,7 @@ namespace gui{
 	GUIText::GUIText(){
 
 	}
-	GUIText::GUIText(int _x, int _y, std::string _text, sf::Color _color, sf::Font *_font, int _font_size){
+	GUIText::GUIText(int _x, int _y, std::string _text, sf::Color _color, sf::Font *_font, int _font_size, float _fade){
 		color = _color;
 		x = _x;
 		y = _y;
@@ -20,6 +20,9 @@ namespace gui{
 
 		active = true;
 		centred = false;
+
+		fade_time = _fade;
+		fade_timer = 0.0f;
 	}
 
 	GUIText::~GUIText(){
@@ -32,6 +35,17 @@ namespace gui{
 	void GUIText::Update(sf::RenderWindow *_window, float _delta){
 		GUIObject::Update(_window, _delta);
 
+		if (fade_timer < fade_time){
+			fade_timer += _delta;
+
+			sf::Color f_color = color;
+			if (fade_timer > fade_time){ fade_timer = fade_time; }
+			f_color.a = fade_timer / fade_time * 255;
+			text_object.setColor(f_color);
+		}
+		else{
+			text_object.setColor(color);
+		}
 	}
 
 	void GUIText::SetPosition(sf::Vector2f _pos){
