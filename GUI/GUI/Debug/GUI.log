@@ -1,18 +1,20 @@
-﻿Build started 21/03/2015 8:47:26 PM.
+﻿Build started 27/03/2015 1:36:48 AM.
      1>Project "C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\GUI\GUI.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GUIText.cpp
-         GUIText.cpp
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitext.cpp(10): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitext.cpp(11): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitext.cpp(19): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitext.cpp(43): warning C4244: '=' : conversion from 'float' to 'sf::Uint8', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitext.cpp(60): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GUISlider.cpp
+         GUISlider.cpp
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(8): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(10): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(25): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(26): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(46): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(52): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\Debug\GUI.lib" /NOLOGO Debug\Event.obj
          Debug\GUIButton.obj
          Debug\GUIManager.obj
          Debug\GUIObject.obj
+         Debug\GUISlider.obj
          Debug\GUIText.obj
          Debug\GUITextBox.obj
          Debug\Menu.obj
@@ -21,4 +23,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.98
+Time Elapsed 00:00:00.89

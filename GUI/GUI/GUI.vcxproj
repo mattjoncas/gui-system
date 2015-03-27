@@ -81,6 +81,7 @@
     <ClCompile Include="GUIButton.cpp" />
     <ClCompile Include="GUIManager.cpp" />
     <ClCompile Include="GUIObject.cpp" />
+    <ClCompile Include="GUISlider.cpp" />
     <ClCompile Include="GUIText.cpp" />
     <ClCompile Include="GUITextBox.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -90,6 +91,7 @@
     <ClInclude Include="GUIButton.h" />
     <ClInclude Include="GUIManager.h" />
     <ClInclude Include="GUIObject.h" />
+    <ClInclude Include="GUISlider.h" />
     <ClInclude Include="GUIText.h" />
     <ClInclude Include="GUITextBox.h" />
     <ClInclude Include="Menu.h" />

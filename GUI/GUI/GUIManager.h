@@ -9,13 +9,13 @@
 #include "GUIButton.h"
 #include "GUIText.h"
 #include "GUITextBox.h"
+#include "GUISlider.h"
 
 #include "Event.h"
 
 namespace gui{
 
 	class GUIManager{
-
 	public:
 		GUIManager();
 		GUIManager(bool gui_cursor);
@@ -35,6 +35,8 @@ namespace gui{
 		void AddText(int menu_index, std::string _name, int _x, int _y, bool _isCentred, std::string _text, sf::Color _color, std::string _font_name, int _font_size, float _fade);
 		//add a gui text box to a menu
 		void AddTextBox(int menu_index, std::string _name, int _width, int _height, int _x, int _y, bool _isCentred, std::string _text, sf::Color _color, std::string _font_name);
+		//add a gui slider to a menu
+		void AddSlider(int menu_index, std::string _name, int _width, int _height, int _x, int _y, bool _isCentred, std::string _text, sf::Color _m_color, sf::Color _i_color, sf::Color _s_color, std::string _font_name);
 		//render binded menu
 		void Render(sf::RenderWindow *_window);
 		//update binded menu

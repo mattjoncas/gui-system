@@ -84,6 +84,17 @@ namespace gui{
 			printf("menu index out of range.\n");
 		}
 	}
+	void GUIManager::AddSlider(int menu_index, std::string _name, int _width, int _height, int _x, int _y, bool _isCentred, std::string _text, sf::Color _m_color, sf::Color _i_color, sf::Color _s_color, std::string _font_name){
+		LoadFont(_font_name);
+		if (menu_index < menu.size()){
+			GUISlider* s = new GUISlider(_width, _height, _x, _y, _text, _m_color, _i_color, _s_color, &fonts.find(_font_name)->second);
+			//s->SetCentred(_isCentred);
+			menu[menu_index]->AddItem(_name, s);
+		}
+		else{
+			printf("menu index out of range.\n");
+		}
+	}
 
 	void GUIManager::Render(sf::RenderWindow *_window){
 		if (current >= 0){

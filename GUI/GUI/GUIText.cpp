@@ -22,6 +22,11 @@ namespace gui{
 		centred = false;
 
 		fade_time = _fade;
+		if (fade_time != 0.0f){
+			sf::Color f_color = color;
+			f_color.a = 0.0f;
+			text_object.setColor(f_color);
+		}
 		fade_timer = 0.0f;
 	}
 

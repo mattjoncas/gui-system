@@ -20,8 +20,6 @@ namespace gui{
 
 		bool IsClicked();
 	private:
-		int width, height;
-
 		sf::RectangleShape shape;
 		sf::Color color, h_color, c_color;
 
