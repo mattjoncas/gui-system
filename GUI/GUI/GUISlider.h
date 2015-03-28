@@ -15,6 +15,9 @@ namespace gui{
 		void SetText(std::string _text) override;
 		std::string GetText() override;
 		bool Contains(sf::Vector2i _pos) override;
+
+		float GetValue();
+		bool Updated();
 	private:
 		sf::RectangleShape main_box, inside_box, slider_box;
 		sf::Color m_color, i_color, s_color;
@@ -22,7 +25,10 @@ namespace gui{
 		sf::Text slider_text;
 		std::string text;
 
-		int slider_value;
+		float slider_value;
+		bool updated;
+
+		void CalculateSliderValue();
 	};
 
 }

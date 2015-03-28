@@ -88,7 +88,7 @@ namespace gui{
 		LoadFont(_font_name);
 		if (menu_index < menu.size()){
 			GUISlider* s = new GUISlider(_width, _height, _x, _y, _text, _m_color, _i_color, _s_color, &fonts.find(_font_name)->second);
-			//s->SetCentred(_isCentred);
+			s->SetCentred(_isCentred);
 			menu[menu_index]->AddItem(_name, s);
 		}
 		else{
@@ -125,6 +125,12 @@ namespace gui{
 					if (b){
 						if (b->IsClicked()){
 							events.push_back(new Event(b, it->first));
+						}
+					}
+					GUISlider *s = dynamic_cast<GUISlider*>(it->second);
+					if (s){
+						if (s->Updated()){
+							events.push_back(new Event(s, it->first));
 						}
 					}
 				}
