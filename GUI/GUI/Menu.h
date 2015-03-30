@@ -9,6 +9,7 @@ namespace gui{
 	class Menu{
 	public:
 		Menu();
+		Menu(sf::Color back_color);
 		~Menu();
 
 		std::map<std::string, GUIObject*> items;
@@ -20,8 +21,8 @@ namespace gui{
 
 		void AddItem(std::string _name, GUIObject *_item);
 	private:
-		
-
+		bool background;
+		sf::RectangleShape back;
 	};
 
 }

@@ -23,6 +23,8 @@ namespace gui{
 
 		//creates and binds new menu
 		int AddMenu();
+		//create a menu with a background color
+		int AddMenu(sf::Color background_color);
 		//bind a menu by index [binding -1 will unbind all menus]
 		void BindMenu(int menu_index);
 		//add a basic gui object to a menu
@@ -73,9 +75,13 @@ namespace gui{
 
 		//events
 		bool PollEvent(Event &g_event);
+
+		void Pause(bool _is_paused);
 	private:
 		int current;
 		bool cursor;
+
+		bool paused;
 
 		//std::vector<std::map<std::string, GUIObject*>> menus;
 		std::vector<Menu*> menu;

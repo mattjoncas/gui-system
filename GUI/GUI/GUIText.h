@@ -16,6 +16,7 @@ namespace gui{
 		void SetText(std::string _text) override;
 		std::string GetText() override;
 		bool Contains(sf::Vector2i _pos) override;
+		void Lerp(sf::Vector2f target_position, float _lerp_time) override;
 	private:
 		sf::Text text_object;
 		std::string text;

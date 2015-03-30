@@ -2,7 +2,13 @@
 
 namespace gui{
 	Menu::Menu(){
-
+		background = false;
+	}
+	Menu::Menu(sf::Color back_color){
+		background = true;
+		back = sf::RectangleShape(sf::Vector2f(5000.0f, 5000.0f));
+		back.setPosition(sf::Vector2f(0.0f, 0.0f));
+		back.setFillColor(back_color);
 	}
 
 	Menu::~Menu(){
@@ -17,6 +23,9 @@ namespace gui{
 		
 	}
 	void Menu::Render(sf::RenderWindow *_window){
+		if (background){
+			_window->draw(back);
+		}
 		std::map<std::string, GUIObject*>::iterator it;
 		for (it = items.begin(); it != items.end(); it++){
 			if (it->second->Active()){

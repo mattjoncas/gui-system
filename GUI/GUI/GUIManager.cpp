@@ -5,12 +5,14 @@ namespace gui{
 	GUIManager::GUIManager(){
 		current = -1;
 		cursor = false;
+		paused = false;
 	}
 	GUIManager::GUIManager(bool gui_cursor){
 		current = -1;
 		if (gui_cursor){
 			AddCursor();
 		}
+		paused = false;
 	}
 
 	GUIManager::~GUIManager(){
@@ -24,6 +26,11 @@ namespace gui{
 
 	int GUIManager::AddMenu(){
 		menu.push_back(new Menu());
+		current = menu.size() - 1;
+		return current;
+	}
+	int GUIManager::AddMenu(sf::Color background_color){
+		menu.push_back(new Menu(background_color));
 		current = menu.size() - 1;
 		return current;
 	}
@@ -112,7 +119,7 @@ namespace gui{
 	}
 	void GUIManager::Update(sf::RenderWindow *_window, float _delta){
 		cursor_over_gui = false;
-		if (current >= 0){
+		if (current >= 0 && !paused){
 			std::map<std::string, GUIObject*>::iterator it;
 			for (it = menu[current]->items.begin(); it != menu[current]->items.end(); it++){
 				if (it->second->Active()){
@@ -298,5 +305,9 @@ namespace gui{
 			
 			cursor = true;
 		}
+	}
+
+	void GUIManager::Pause(bool _is_paused){
+		paused = _is_paused;
 	}
 }

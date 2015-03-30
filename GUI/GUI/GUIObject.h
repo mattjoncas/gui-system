@@ -25,7 +25,7 @@ namespace gui{
 		//returns true if gui objects bounds contain the given screen position
 		virtual bool Contains(sf::Vector2i _pos);
 		//lerp
-		void Lerp(sf::Vector2f _target, float _lerp_time);
+		virtual void Lerp(sf::Vector2f _target, float _lerp_time);
 
 		bool Active();
 		void SetActive(bool _isActive);

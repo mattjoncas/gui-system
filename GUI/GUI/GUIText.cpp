@@ -81,5 +81,16 @@ namespace gui{
 	bool GUIText::Contains(sf::Vector2i _pos){
 		return false;
 	}
-
+	void GUIText::Lerp(sf::Vector2f target_position, float _lerp_time){
+		lerping = true;
+		if (!centred){
+			lerp_start = sf::Vector2f(x, y);
+		}
+		else{
+			lerp_start = sf::Vector2f(x + text_object.getLocalBounds().width / 2, y);
+		}
+		lerp_end = target_position;
+		lerp_time = 0.0f;
+		lerp_end_time = _lerp_time;
+	}
 }
