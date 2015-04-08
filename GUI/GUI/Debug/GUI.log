@@ -1,20 +1,24 @@
-﻿Build started 29/03/2015 9:12:08 PM.
-     1>Project "C:\Users\Matt Joncas\documents\visual studio 2013\Projects\GUI\GUI\GUI.vcxproj" on node 2 (Build target(s)).
+﻿Build started 07/04/2015 2:48:15 PM.
+     1>Project "C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\GUI\GUI.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GUIManager.cpp Menu.cpp
-         Menu.cpp
-         GUIManager.cpp
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(47): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(63): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(74): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(85): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(96): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(147): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(303): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-         Generating Code...
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(178): warning C4715: 'gui::GUIManager::GetPosition' : not all control paths return a value
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GUIButton.cpp
+         GUIButton.cpp
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(9): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(16): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(17): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(18): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(24): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(26): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(38): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(40): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(41): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(42): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(48): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(50): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(53): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guibutton.cpp(127): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Matt Joncas\documents\visual studio 2013\Projects\GUI\Debug\GUI.lib" /NOLOGO Debug\Event.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\Debug\GUI.lib" /NOLOGO Debug\Event.obj
          Debug\GUIButton.obj
          Debug\GUIManager.obj
          Debug\GUIObject.obj
@@ -22,9 +26,9 @@
          Debug\GUIText.obj
          Debug\GUITextBox.obj
          Debug\Menu.obj
-         GUI.vcxproj -> C:\Users\Matt Joncas\documents\visual studio 2013\Projects\GUI\Debug\GUI.lib
-     1>Done Building Project "C:\Users\Matt Joncas\documents\visual studio 2013\Projects\GUI\GUI\GUI.vcxproj" (Build target(s)).
+         GUI.vcxproj -> C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\Debug\GUI.lib
+     1>Done Building Project "C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\GUI\GUI.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.06
+Time Elapsed 00:00:00.81
