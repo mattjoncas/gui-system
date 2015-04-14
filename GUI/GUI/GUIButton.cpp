@@ -49,6 +49,9 @@ namespace gui{
 
 		button_text.setPosition(int(x - button_text.getLocalBounds().width / 2 + _width / 2), int(y));
 
+		c_state = false; p_state = false; clicked = false;
+		active = true;
+		centred = false;
 		texture_button = true;
 		size = sf::Vector2f(_width, _height);
 	}
@@ -90,6 +93,8 @@ namespace gui{
 			if (_pos.x > x && _pos.x < x + shape.getSize().x
 				&& _pos.y > y && _pos.y < y + shape.getSize().y){
 				shape.setSize(sf::Vector2f(size.x + 10, size.y + 10));
+				button_text.setCharacterSize(shape.getLocalBounds().height / 1.3);
+				button_text.setPosition(int(x - button_text.getLocalBounds().width / 2 + shape.getLocalBounds().width / 2), int(y - 5));
 				shape.setPosition(sf::Vector2f(x - 5, y - 5));
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)){
 					c_state = true;
@@ -105,6 +110,8 @@ namespace gui{
 			}
 			else{
 				shape.setSize(size);
+				button_text.setCharacterSize(shape.getLocalBounds().height / 1.3);
+				button_text.setPosition(int(x - button_text.getLocalBounds().width / 2 + shape.getLocalBounds().width / 2), int(y));
 				shape.setPosition(sf::Vector2f(x, y));
 				shape.setFillColor(sf::Color::White);
 				c_state = false;
