@@ -93,9 +93,9 @@ namespace gui{
 			if (_pos.x > x && _pos.x < x + shape.getSize().x
 				&& _pos.y > y && _pos.y < y + shape.getSize().y){
 				shape.setSize(sf::Vector2f(size.x + 10, size.y + 10));
-				button_text.setCharacterSize(shape.getLocalBounds().height / 1.3);
-				button_text.setPosition(int(x - button_text.getLocalBounds().width / 2 + shape.getLocalBounds().width / 2), int(y - 5));
 				shape.setPosition(sf::Vector2f(x - 5, y - 5));
+				button_text.setCharacterSize(shape.getLocalBounds().height / 1.3);
+				button_text.setPosition(int(shape.getPosition().x - button_text.getLocalBounds().width / 2 + shape.getLocalBounds().width / 2), int(shape.getPosition().y));
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)){
 					c_state = true;
 					shape.setFillColor(sf::Color(200, 200, 200, 50));
@@ -110,10 +110,10 @@ namespace gui{
 			}
 			else{
 				shape.setSize(size);
-				button_text.setCharacterSize(shape.getLocalBounds().height / 1.3);
-				button_text.setPosition(int(x - button_text.getLocalBounds().width / 2 + shape.getLocalBounds().width / 2), int(y));
 				shape.setPosition(sf::Vector2f(x, y));
 				shape.setFillColor(sf::Color::White);
+				button_text.setCharacterSize(shape.getLocalBounds().height / 1.3);
+				button_text.setPosition(int(shape.getPosition().x - button_text.getLocalBounds().width / 2 + shape.getLocalBounds().width / 2), int(shape.getPosition().y));
 				c_state = false;
 			}
 			p_state = c_state;
