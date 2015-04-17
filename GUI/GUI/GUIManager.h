@@ -17,8 +17,8 @@ namespace gui{
 
 	class GUIManager{
 	public:
-		GUIManager();
-		GUIManager(bool gui_cursor);
+		static GUIManager& GetInstance(bool gui_cursor);
+		static void ResetInstance();
 		~GUIManager();
 		
 		/*
@@ -257,6 +257,10 @@ namespace gui{
 		*/
 		void Pause(bool _is_paused);
 	private:
+		static GUIManager *instance;
+		GUIManager();
+		GUIManager(bool gui_cursor);
+
 		int current;
 		bool cursor;
 		bool paused;

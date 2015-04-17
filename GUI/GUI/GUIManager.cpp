@@ -2,6 +2,8 @@
 
 namespace gui{
 
+	GUIManager* GUIManager::instance = nullptr;
+
 	GUIManager::GUIManager(){
 		current = -1;
 		cursor = false;
@@ -22,6 +24,17 @@ namespace gui{
 		for (std::vector<Event*>::iterator iter = events.begin(); iter != events.end(); ++iter){
 			delete((*iter));
 		}
+	}
+
+	GUIManager& GUIManager::GetInstance(bool gui_cursor){
+		if (instance == nullptr){
+			instance = new GUIManager(gui_cursor);
+		}
+		return *instance;
+	}
+	void GUIManager::ResetInstance(){
+		delete instance;
+		instance = nullptr;
 	}
 
 	int GUIManager::AddMenu(){
