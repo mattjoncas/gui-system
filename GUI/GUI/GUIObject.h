@@ -25,12 +25,21 @@ public:
 	//lerp
 	virtual void Lerp(sf::Vector2f _target, float _lerp_time);
 
-	bool Active();
-	void SetActive(bool _isActive);
+	inline bool Active(){
+		return active;
+	}
+	inline void SetActive(bool _isActive){
+		active = _isActive;
+	}
+	inline bool IsTemp(){
+		return temporary;
+	}
+	inline void SetTemporary(){
+		temporary = true;
+	}
 protected:
-	bool active, centred;
+	bool active, centred, lerping = false, temporary = false;
 
-	bool lerping = false;
 	sf::Vector2f lerp_start, lerp_end;
 	float lerp_time, lerp_end_time;
 };

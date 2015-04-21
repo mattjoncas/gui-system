@@ -54,10 +54,3 @@ void GUIObject::Lerp(sf::Vector2f target_position, float _lerp_time){
 	lerp_time = 0.0f;
 	lerp_end_time = _lerp_time;
 }
-
-bool GUIObject::Active(){
-	return active;
-}
-void GUIObject::SetActive(bool _isActive){
-	active = _isActive;
-}

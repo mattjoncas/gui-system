@@ -49,6 +49,7 @@ namespace gui{
 	}
 	void GUIManager::BindMenu(int menu_index){
 		if (menu_index < int(menu.size())){
+			RemoveTempObjects();
 			current = menu_index;
 		}
 		else{
@@ -212,6 +213,12 @@ namespace gui{
 			t->second->SetActive(_isActive);
 		}
 	}
+	void GUIManager::SetTemporary(std::string _name){
+		std::map<std::string, GUIObject*>::iterator t = menu[current]->items.find(_name);
+		if (t != menu[current]->items.end()){
+			t->second->SetTemporary();
+		}
+	}
 
 	void GUIManager::TextBoxInput(char _c){
 		std::map<std::string, GUIObject*>::iterator it;
@@ -299,6 +306,19 @@ namespace gui{
 			sf::Font new_font;
 			new_font.loadFromFile("fonts/" + _font_name);
 			fonts.insert(std::pair<std::string, sf::Font>(_font_name, new_font));
+		}
+	}
+
+	void GUIManager::RemoveTempObjects(){
+		std::map<std::string, GUIObject*>::iterator it = menu[current]->items.begin();
+		while (it != menu[current]->items.end()){
+			if (it->second->IsTemp()){
+				delete it->second;
+				it = menu[current]->items.erase(it);
+			}
+			else{
+				++it;
+			}
 		}
 	}
 

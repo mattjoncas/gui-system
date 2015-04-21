@@ -194,6 +194,13 @@ namespace gui{
 		*/
 		void SetActive(std::string _name, bool _isActive);
 		/*
+		func: set a gui object to be temporary.
+		*temporary gui objects will automatically be removed when the menu it is within is unbinded.
+		param:
+		name of gui object to be set.
+		*/
+		void SetTemporary(std::string name);
+		/*
 		func: input for currently selected text box
 		param:
 			character to be added, NULL will remove last character of text box.
@@ -273,6 +280,7 @@ namespace gui{
 
 		bool cursor_over_gui;
 
+		void RemoveTempObjects();
 		//events
 		std::vector<Event*> events;
 

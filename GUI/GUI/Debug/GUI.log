@@ -1,43 +1,17 @@
-﻿Build started 18/04/2015 2:17:12 AM.
+﻿Build started 20/04/2015 2:23:56 PM.
      1>Project "C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\GUI\GUI.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Event.cpp GUIManager.cpp GUISlider.cpp GUITextBox.cpp
-         GUITextBox.cpp
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(7): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(12): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(13): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(14): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(20): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(21): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(28): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(29): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(92): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(93): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guitextbox.cpp(159): warning C4018: '<' : signed/unsigned mismatch
-         GUISlider.cpp
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(8): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(10): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(24): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(25): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(30): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(31): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(53): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(60): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guislider.cpp(83): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         Generating Code...
-         Compiling...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GUIManager.cpp
          GUIManager.cpp
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(60): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(76): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(87): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(98): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(109): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(120): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(171): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(327): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-         Event.cpp
-         Generating Code...
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(202): warning C4715: 'gui::GUIManager::GetPosition' : not all control paths return a value
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(61): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(77): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(88): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(99): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(110): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(121): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(172): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(347): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(203): warning C4715: 'gui::GUIManager::GetPosition' : not all control paths return a value
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\Debug\GUI.lib" /NOLOGO Debug\Event.obj
          Debug\GUIButton.obj
@@ -52,4 +26,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.37
+Time Elapsed 00:00:01.92
