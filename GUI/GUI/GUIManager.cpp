@@ -42,8 +42,13 @@ namespace gui{
 		current = menu.size() - 1;
 		return current;
 	}
-	int GUIManager::AddMenu(sf::Color background_color){
-		menu.push_back(new Menu(background_color));
+	int GUIManager::AddMenu(sf::Color background_color, int screen_width, int screen_heigth){
+		menu.push_back(new Menu(background_color, screen_width, screen_heigth));
+		current = menu.size() - 1;
+		return current;
+	}
+	int GUIManager::AddMenu(std::string background_texture, int screen_width, int screen_heigth){
+		menu.push_back(new Menu(background_texture, screen_width, screen_heigth));
 		current = menu.size() - 1;
 		return current;
 	}
@@ -122,6 +127,16 @@ namespace gui{
 			GUISlider* s = new GUISlider(_width, _height, _x, _y, _text, _m_color, _i_color, _s_color, &fonts.find(_font_name)->second);
 			s->SetCentred(_isCentred);
 			menu[menu_index]->AddItem(_name, s);
+		}
+		else{
+			printf("menu index out of range.\n");
+		}
+	}
+	void GUIManager::AddTexture(int menu_index, std::string _name, int _width, int _height, int _x, int _y, bool _isCentred, std::string _texture_path){
+		if (menu_index < menu.size()){
+			GUITexture* t = new GUITexture(_width, _height, _x, _y, _texture_path);
+			t->SetCentred(_isCentred);
+			menu[menu_index]->AddItem(_name, t);
 		}
 		else{
 			printf("menu index out of range.\n");

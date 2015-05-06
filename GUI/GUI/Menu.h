@@ -7,7 +7,8 @@
 class Menu{
 public:
 	Menu();
-	Menu(sf::Color back_color);
+	Menu(sf::Color background_color, int screenWidth, int screenHeight);
+	Menu(std::string background_texture, int screenWidth, int screenHeight);
 	~Menu();
 
 	std::map<std::string, GUIObject*> items;
@@ -21,4 +22,5 @@ public:
 private:
 	bool background;
 	sf::RectangleShape back;
+	sf::Texture back_texture;
 };

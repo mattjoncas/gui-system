@@ -42,6 +42,9 @@
     <ClCompile Include="GUISlider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GUITexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GUIButton.h">
@@ -66,6 +69,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GUISlider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUITexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

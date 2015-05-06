@@ -10,6 +10,7 @@
 #include "GUIText.h"
 #include "GUITextBox.h"
 #include "GUISlider.h"
+#include "GUITexture.h"
 
 #include "Event.h"
 
@@ -32,7 +33,8 @@ namespace gui{
 			background color for menu.
 		return: index of new menu
 		*/
-		int AddMenu(sf::Color background_color);
+		int AddMenu(sf::Color background_color, int screen_width, int screen_heigth);
+		int AddMenu(std::string background_texture, int screen_width, int screen_heigth);
 		/*
 		func: bind a menu by it's index. binding -1 will undbind all menus.
 		param: 
@@ -131,6 +133,7 @@ namespace gui{
 		font name to be used.
 		*/
 		void AddSlider(int menu_index, std::string _name, int _width, int _height, int _x, int _y, bool _isCentred, std::string _text, sf::Color _m_color, sf::Color _i_color, sf::Color _s_color, std::string _font_name);
+		void AddTexture(int menu_index, std::string _name, int _width, int _height, int _x, int _y, bool _isCentred, std::string _texture_path);
 		/*
 		func: renders the currently binded menu and all of it's gui objects
 		param: 

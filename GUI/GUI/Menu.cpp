@@ -3,11 +3,18 @@
 Menu::Menu(){
 	background = false;
 }
-Menu::Menu(sf::Color back_color){
+Menu::Menu(sf::Color background_color, int screenWidth, int screenHeight){
 	background = true;
-	back = sf::RectangleShape(sf::Vector2f(5000.0f, 5000.0f));
+	back = sf::RectangleShape(sf::Vector2f(float(screenWidth), float(screenHeight)));
 	back.setPosition(sf::Vector2f(0.0f, 0.0f));
-	back.setFillColor(back_color);
+	back.setFillColor(background_color);
+}
+Menu::Menu(std::string background_texture, int screenWidth, int screenHeight){
+	background = true;
+	back = sf::RectangleShape(sf::Vector2f(float(screenWidth), float(screenHeight)));
+	back.setPosition(sf::Vector2f(0.0f, 0.0f));
+	back_texture.loadFromFile(background_texture);
+	back.setTexture(&back_texture);
 }
 
 Menu::~Menu(){

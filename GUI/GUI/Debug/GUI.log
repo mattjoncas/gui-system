@@ -1,29 +1,21 @@
-﻿Build started 20/04/2015 2:23:56 PM.
-     1>Project "C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\GUI\GUI.vcxproj" on node 2 (Build target(s)).
+﻿Build started 05/05/2015 8:21:45 PM.
+     1>Project "C:\Users\Matt Joncas\documents\visual studio 2013\Projects\GUI\GUI\GUI.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GUIManager.cpp
-         GUIManager.cpp
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(61): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(77): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(88): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(99): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(110): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(121): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(172): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(347): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\matt joncas\documents\visual studio 2013\projects\gui\gui\guimanager.cpp(203): warning C4715: 'gui::GUIManager::GetPosition' : not all control paths return a value
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Menu.cpp
+         Menu.cpp
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\Debug\GUI.lib" /NOLOGO Debug\Event.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Matt Joncas\documents\visual studio 2013\Projects\GUI\Debug\GUI.lib" /NOLOGO Debug\Event.obj
          Debug\GUIButton.obj
          Debug\GUIManager.obj
          Debug\GUIObject.obj
          Debug\GUISlider.obj
          Debug\GUIText.obj
          Debug\GUITextBox.obj
+         Debug\GUITexture.obj
          Debug\Menu.obj
-         GUI.vcxproj -> C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\Debug\GUI.lib
-     1>Done Building Project "C:\Users\Matt Joncas\Documents\Visual Studio 2013\Projects\GUI\GUI\GUI.vcxproj" (Build target(s)).
+         GUI.vcxproj -> C:\Users\Matt Joncas\documents\visual studio 2013\Projects\GUI\Debug\GUI.lib
+     1>Done Building Project "C:\Users\Matt Joncas\documents\visual studio 2013\Projects\GUI\GUI\GUI.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.92
+Time Elapsed 00:00:00.94
