@@ -13,8 +13,9 @@ Menu::Menu(std::string background_texture, int screenWidth, int screenHeight){
 	background = true;
 	back = sf::RectangleShape(sf::Vector2f(float(screenWidth), float(screenHeight)));
 	back.setPosition(sf::Vector2f(0.0f, 0.0f));
-	back_texture.loadFromFile(background_texture);
-	back.setTexture(&back_texture);
+
+	back_texture = &TextureManager::GetInstance().LoadTexture(background_texture);
+	back.setTexture(back_texture);
 }
 
 Menu::~Menu(){

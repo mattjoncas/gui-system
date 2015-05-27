@@ -1,8 +1,8 @@
 #pragma once
 
-
 #include "GUIObject.h"
 #include "GUIButton.h"
+#include "TextureManager.h"
 
 class Menu{
 public:
@@ -22,5 +22,5 @@ public:
 private:
 	bool background;
 	sf::RectangleShape back;
-	sf::Texture back_texture;
+	sf::Texture* back_texture;
 };

@@ -86,6 +86,7 @@
     <ClCompile Include="GUITextBox.cpp" />
     <ClCompile Include="GUITexture.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Event.h" />
@@ -97,6 +98,7 @@
     <ClInclude Include="GUITextBox.h" />
     <ClInclude Include="GUITexture.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="TextureManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,11 +9,9 @@ namespace gui{
 		cursor = false;
 		paused = false;
 	}
-	GUIManager::GUIManager(bool gui_cursor){
+	GUIManager::GUIManager(std::string cursor_texture){
 		current = -1;
-		if (gui_cursor){
-			AddCursor();
-		}
+		AddCursor(cursor_texture);
 		paused = false;
 	}
 
@@ -26,9 +24,9 @@ namespace gui{
 		}
 	}
 
-	GUIManager& GUIManager::GetInstance(bool gui_cursor){
+	GUIManager& GUIManager::GetInstance(std::string cursor_texture){
 		if (instance == nullptr){
-			instance = new GUIManager(gui_cursor);
+			instance = new GUIManager(cursor_texture);
 		}
 		return *instance;
 	}
@@ -184,7 +182,7 @@ namespace gui{
 			}
 			if (cursor){
 				_window->setMouseCursorVisible(false);
-				cursor_rec.setPosition(sf::Vector2f(sf::Mouse::getPosition(*_window).x - cursor_rec.getSize().x / 2.0f, sf::Mouse::getPosition(*_window).y - 1));
+				cursor_rec.setPosition(sf::Vector2f(sf::Mouse::getPosition(*_window).x, sf::Mouse::getPosition(*_window).y));
 			}
 		}
 	}
@@ -354,13 +352,13 @@ namespace gui{
 		return false;
 	}
 
-	void GUIManager::AddCursor(){
+	void GUIManager::AddCursor(std::string _cursor_path){
 		if (!cursor){
-			cursor_texture.loadFromFile("textures/cursor_centered.png", sf::IntRect());
-			cursor_texture.setSmooth(false);
-
-			cursor_rec.setSize(sf::Vector2f(cursor_texture.getSize().x * 0.5, cursor_texture.getSize().y * 0.5));
-			cursor_rec.setTexture(&cursor_texture);
+			cursor_texture = &TextureManager::GetInstance().LoadTexture(_cursor_path);
+			cursor_texture->setSmooth(false);
+			
+			cursor_rec.setSize(sf::Vector2f(cursor_texture->getSize().x, cursor_texture->getSize().y));
+			cursor_rec.setTexture(cursor_texture);
 			
 			cursor = true;
 		}

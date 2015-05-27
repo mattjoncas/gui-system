@@ -18,7 +18,7 @@ namespace gui{
 
 	class GUIManager{
 	public:
-		static GUIManager& GetInstance(bool gui_cursor);
+		static GUIManager& GetInstance(std::string cursor_texture);
 		static void ResetInstance();
 		~GUIManager();
 		
@@ -269,7 +269,7 @@ namespace gui{
 	private:
 		static GUIManager *instance;
 		GUIManager();
-		GUIManager(bool gui_cursor);
+		GUIManager(std::string cursor_texture);
 
 		int current;
 		bool cursor;
@@ -287,8 +287,8 @@ namespace gui{
 		//events
 		std::vector<Event*> events;
 
-		void AddCursor();
-		sf::Texture cursor_texture;
+		void AddCursor(std::string _cursor_path);
+		sf::Texture* cursor_texture;
 		sf::RectangleShape cursor_rec;
 	};
 

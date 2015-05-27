@@ -1,5 +1,6 @@
 #pragma once
 #include "GUIObject.h"
+#include "TextureManager.h"
 
 class GUITexture : public GUIObject{
 public:
@@ -15,5 +16,5 @@ private:
 	sf::Vector2f size;
 	sf::RectangleShape shape;
 	
-	sf::Texture texture;
+	sf::Texture* texture;
 };

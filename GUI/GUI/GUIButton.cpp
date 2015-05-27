@@ -30,11 +30,12 @@ GUIButton::GUIButton(int _width, int _height, int _x, int _y, std::string _text,
 	texture_button = false;
 }
 GUIButton::GUIButton(int _width, int _height, int _x, int _y, std::string _text, sf::Font *_font, std::string _texture_path){
-	button_texture.loadFromFile(_texture_path, sf::IntRect());
-	button_texture.setSmooth(false);
+	button_texture = &TextureManager::GetInstance().LoadTexture(_texture_path);
+	//button_texture.loadFromFile(_texture_path);
+	button_texture->setSmooth(false);
 
 	shape.setSize(sf::Vector2f(_width, _height));
-	shape.setTexture(&button_texture);
+	shape.setTexture(button_texture);
 	shape.setPosition(sf::Vector2f(_x, _y));
 	x = _x;
 	y = _y;
